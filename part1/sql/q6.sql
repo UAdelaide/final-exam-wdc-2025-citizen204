@@ -4,7 +4,7 @@ SELECT
   WalkRequests.requested_time,
   WalkRequests.duration_minutes,
   WalkRequests.location,
-  Users.username
+  Users.username as owner_username
 FROM WalkRequests
 JOIN Dogs
   ON WalkRequests.dog_id = Dogs.dog_id
