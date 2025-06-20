@@ -10,7 +10,10 @@ app.use(session({
   secret: 'session_secret',
   resave: false,
   saveUninitialized: true,
-  cookie: { secure: false }
+  cookie: {
+    maxAge: 3,
+    secure: false
+    }
 }));
 
 app.use(express.json());
