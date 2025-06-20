@@ -24,6 +24,7 @@
           <label for="u_password" class="form-label" required v-model="password">Password</label>
           <input type="password" class="form-control" id="u_password">
         </div>
+        <div ></div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
     </div>
@@ -39,7 +40,7 @@
         return {
           email: '',
           password: '',
-          error: 
+          error: ''
         };
       }
     }).mount('#app');
