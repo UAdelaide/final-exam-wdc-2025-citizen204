@@ -42,7 +42,7 @@ router.get('/api/walkrequests/open', async function(req, res, next) {
 
 
 /* /api/walkrequests/open */
-router.get('/api/walkrequests/open', async function(req, res, next) {
+router.get('/api/walkers/summary', async function(req, res, next) {
   try {
     const [rows] = await db.query(`
         SELECT Dogs.name AS dog_name, Dogs.size, Users.username AS owner_username
