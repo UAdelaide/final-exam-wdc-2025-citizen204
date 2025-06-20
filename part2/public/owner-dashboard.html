@@ -125,9 +125,10 @@
         async function logout() {
           try {
             const res = await fetch('/api/users/logout');
-
-            if (res.ok) {
               
+            if (res.ok) {
+              window.location.href = '/';
+              return
             }
             const data = await res.json();
             if (data.error) {
