@@ -84,7 +84,10 @@
             const res = await fetch('/api/users/me');
             const result = await res.json();
 
-            if (res.ok) 
+            if (res.ok) {
+              user = result.user_id;
+              ret
+            }
             message.value = result.message;
             error.value = '';
             await loadWalkRequests();
