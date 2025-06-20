@@ -83,7 +83,7 @@ router.get('/doglist', async (req, res) => {
       return res.status(400).json({ error: "Please login first." });
     }
 
-    
+    const [result] = await db.query()
   } catch (error) {
 
   }
