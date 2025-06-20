@@ -81,13 +81,14 @@
           try {
             const res = fetch('/api/dogs');
             const data = res.json();
+
+            // check if success
             if (!res.ok) {
               error = data.error;
-              dogs = res.json();
-            } else {
-
+              return;
             }
 
+            dogs = 
           } catch (error) {
             error = error;
           }
