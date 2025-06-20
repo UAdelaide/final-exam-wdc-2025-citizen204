@@ -69,7 +69,7 @@ router.get('/logout', async (req, res) => {
       // clear session id
       res.clearCookie('connect.sid');
       // redirect to login page
-      return res.redirect('/');
+      return status(2)
     });
   } catch (error) {
     console.log(error);
