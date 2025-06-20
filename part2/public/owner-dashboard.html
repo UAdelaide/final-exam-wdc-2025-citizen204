@@ -96,7 +96,9 @@
 
             // if status code is 2xx
             if (res.ok) {
-              
+              dogs.value = data;
+            } else {
+              error.value = data.
             }
           } catch (err) {
             error.value = 'Failed to load walk requests';
