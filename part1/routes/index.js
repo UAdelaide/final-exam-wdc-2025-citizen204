@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
   try {
     res.render('index', { title: 'Express' });
   } catch (error) {
-    res.status(500).json({error: error });
+    res.status(500).json({ error: error });
   }
 });
 
