@@ -83,7 +83,8 @@ router.get('/doglist', async (req, res) => {
       return res.status(400).json({ error: "Please login first." });
     }
 
-    const [result] = await db.query()
+    const [result] = await db.query('SELECT dog_id, name FROM Dogs where owner_id=?', [req.session.user.user_id]);
+    res.status(200).
   } catch (error) {
 
   }
