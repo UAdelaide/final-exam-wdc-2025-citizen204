@@ -106,9 +106,12 @@
         async getRandomImg() {
           try {
             const res = await fetch('https://dog.ceo/api/breeds/image/random');
+            if (!res.ok) {
+              return '';
+            }
             const data = await res.json();
             if (res.status == 'success') {
-              return res. 
+              return res.
             }
           } catch (error) {
             return '';
