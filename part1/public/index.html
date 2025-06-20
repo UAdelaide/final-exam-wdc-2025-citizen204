@@ -82,8 +82,12 @@
             text-decoration: underline;
         }
 
-        
 
+        .moving {
+            position: relative;
+            left: 0;
+            animation: move 2s linear infinite;
+        }
         @keyframes move {
             0% { left: 0; }
             50% { left: 200px; }
