@@ -126,7 +126,9 @@
           try {
             const res = await fetch('/api/users/logout');
             const data = await res.json();
-            if (data.error)
+            if (data.error) {
+              error.value = data.error;
+            }
           } catch (err) {
             error.value = 'Failed to load walk requests';
           }
