@@ -56,9 +56,25 @@ router.get('/api/walkrequests/open', async function(req, res, next) {
 router.get('/api/walkers/summary', async function(req, res, next) {
   try {
     const [rows] = await db.query(`
-        SELECT Dogs.name AS dog_name, Dogs.size, Users.username AS owner_username
-        FROM Dogs JOIN Users
-          ON d.owner_id = u.user_id`);
+    SELECT
+      u.username AS walker_username,
+      COUNT(DISTINCT wr.rating_id) AS total_ratings,
+      AVG(wr.rating) AS average_rating,
+      SUM(CASE WHEN Req.status = 'completed' THEN 1 ELSE 0 END) AS completed_walks
+    FROM Users AS u
+    LEFT JOIN WalkRatings AS wr
+      ON u.user_id = wr.walker_id
+    LEFT JOIN WalkApplications AS wa
+      ON u.user_id = wa.walker_id
+    LEFT JOIN WalkRequests AS Req
+      ON wa.request_id = Req.request_id
+    WHERE
+      u.role = 'walker'
+    GROUP BY
+      u.user_id,
+      u.username
+    ORDER BY
+      u.username;`);
 
     res.status(200).json(rows);
   } catch (error) {
