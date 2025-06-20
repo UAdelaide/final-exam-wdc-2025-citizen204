@@ -12,7 +12,7 @@
             background-color: #f0f0f0;
         }
 
-        .hero-section {
+        #app {
             padding: 20px;
             text-align: center;
             background-color: #e0f2f7;
@@ -141,23 +141,20 @@
 <body>
 
     <div id="app">
+        <h1>Welcome to Our Dog Walking Service!</h1>
+        <p style="color: #6a5acd;">The best choice for your furry friend. We think.</p>
+        <div v-if="dogImage" class="mt-4">
 
-        <div class="hero-section">
-            <h1>Welcome to Our Dog Walking Service!</h1>
-            <p style="color: #6a5acd;">The best choice for your furry friend. We think.</p>
-            <div v-if="dogImage" class="mt-4">
-
-                <h2 class="moving">Dog of the Day!</h2>
-                <img :src="dogImage" class="dog-image blink-border">
-                <h3>Meet {{ dogDetails.name }}</h3>
-                <p><strong>Age:</strong> {{ dogDetails.age }}</p>
-                <p><strong>Personality:</strong> {{ dogDetails.personality }}</p>
-                <p style="background-color: #ffd700; color: #8b0000; padding: 3px;">Important Note: This dog may or may
-                    not be available for walking. Details subject to change without notice.</p>
-            </div>
-            <button class="btn btn-custom mt-3">Click Here</button>
-            <button class="btn btn-custom mt-3">Another Button</button>
-        </section>
+            <h2 class="moving">Dog of the Day!</h2>
+            <img :src="dogImage" class="dog-image blink-border">
+            <h3>Meet {{ dogDetails.name }}</h3>
+            <p><strong>Age:</strong> {{ dogDetails.age }}</p>
+            <p><strong>Personality:</strong> {{ dogDetails.personality }}</p>
+            <p style="background-color: #ffd700; color: #8b0000; padding: 3px;">Important Note: This dog may or may
+                not be available for walking. Details subject to change without notice.</p>
+        </div>
+        <button class="btn btn-custom mt-3">Click Here</button>
+        <button class="btn btn-custom mt-3">Another Button</button>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
