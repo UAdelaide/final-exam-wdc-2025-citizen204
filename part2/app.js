@@ -7,9 +7,11 @@ const app = express();
 
 
 // Insert data
-InitDB = () => {
-  
+async function InitDB() {
+
 }
+
+
 
 
 
