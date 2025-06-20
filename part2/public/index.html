@@ -51,6 +51,8 @@
       methods: {
         async login() {
           try {
+            // clear error
+            error = '';
             // fetch login api
             const response = await fetch('/api/users/login', {
               method: 'POST',
@@ -66,7 +68,7 @@
 
             // goto dashboard
             if (data.error) {
-              error = data.error
+              error = data.error;
             } else {
               if (data.user.role === 'owner') {
                 window.location.href = 'owner-dashboard.html';
