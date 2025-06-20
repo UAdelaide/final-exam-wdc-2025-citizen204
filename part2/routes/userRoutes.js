@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../models/db');
+const e = require('express');
 
 // GET all users (for admin/testing)
 router.get('/', async (req, res) => {
@@ -59,7 +60,9 @@ router.post('/login', async (req, res) => {
 
 router.post('/logout', async (req, res) => {
   try {
-    
+    req.session.destroy((err) => {
+      if ()
+    })
   } catch (error) {
     res.status(500).json({ error: error });
   }
