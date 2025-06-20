@@ -91,7 +91,7 @@
             console.log(data);
             // check if success
             if (!res.ok) {
-              error = data.error;
+              this.error = data.error;
               return;
             }
 
@@ -101,7 +101,7 @@
               this.dogs[i].img = await getRandomImg();
             }
           } catch (error) {
-            error = error;
+            this.error = error;
           }
         },
 
