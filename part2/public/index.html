@@ -99,8 +99,8 @@
             for (let i = 0; i < dogs.length; i++) {
               this.dogs[i].img = await getRandomImg();
             }
-          } catch (error) {
-            this.error = error;
+          } catch (err) {
+            this.error = err;
           }
         },
 
