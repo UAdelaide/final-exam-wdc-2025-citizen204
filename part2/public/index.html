@@ -88,6 +88,7 @@
             const res = await fetch('/api/dogs');
             const data = await res.json();
 
+            console.log(data);
             // check if success
             if (!res.ok) {
               error = data.error;
