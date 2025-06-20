@@ -67,7 +67,9 @@
             if (data.error) {
               error = data.error
             } else {
-              if (data.user.row)
+              if (data.user.role === 'owner') {
+                window.location.href = 'owner-dashboard.html';
+              } 
             }
           } catch (err) {
             error = data.error | JSON.stringify(err);
