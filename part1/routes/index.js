@@ -10,7 +10,11 @@ router.get('/', function(req, res, next) {
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  try {
+    res.render('index', { title: 'Express' });
+  } catch (error) {
+    res.status(500).json()
+  }
 });
 
 module.exports = router;
