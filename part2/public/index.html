@@ -27,7 +27,7 @@
 
         <div class="alert alert-danger mb-3">
           <div v-if="error">
-             {{ error }}
+            {{ error }}
           </div>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
@@ -51,9 +51,19 @@
       methods: {
         async login() {
           try {
-
+            // 
+            const response = await fetch('/api/users/login', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({
+                email: this.email,
+                password: this.password
+              })
+            });
           } catch (err) {
-            err = data.error | JSON.stringify(err)
+            error = data.error | JSON.stringify(err);
           }
         }
       },
