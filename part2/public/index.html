@@ -51,7 +51,7 @@
       methods: {
         async login() {
           try {
-            // 
+            // fetch login api
             const response = await fetch('/api/users/login', {
               method: 'POST',
               headers: {
@@ -62,6 +62,7 @@
                 password: this.password
               })
             });
+            const data 
           } catch (err) {
             error = data.error | JSON.stringify(err);
           }
