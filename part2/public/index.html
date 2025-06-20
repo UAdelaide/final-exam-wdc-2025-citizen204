@@ -53,7 +53,7 @@
           try {
 
           } catch (err) {
-            err = data.error | 
+            err = data.error | JSON.stringify(err)
           }
         }
       },
