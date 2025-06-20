@@ -57,6 +57,8 @@ router.post('/login', async (req, res) => {
   }
 });
 
+
+
 router.post('/logout', async (req, res) => {
   try {
     req.session.destroy((err) => {
@@ -65,7 +67,7 @@ router.post('/logout', async (req, res) => {
       }
       // clear session id
       res.clearCookie('connect.sid');
-      // redirect to login 
+      // redirect to login page
       return res.redirect('/');
     });
   } catch (error) {
