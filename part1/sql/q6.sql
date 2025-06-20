@@ -17,12 +17,12 @@ WHERE
 
 SELECT
   u.username AS walker_username,
-  COUNT(DISTINCT wr.rating_id) AS total_ratings,
-  AVG(wr.rating) AS average_rating,
+  COUNT(DISTINCT r.rating_id) AS total_ratings,
+  AVG(r.rating) AS average_rating,
   SUM(CASE WHEN r.status = 'completed' THEN 1 ELSE 0 END) AS completed_walks
 FROM Users AS u
 LEFT JOIN WalkRatings AS r
-  ON u.user_id = wr.walker_idr
+  ON u.user_id = r.walker_idr
 LEFT JOIN WalkApplications AS wa
   ON u.user_id = wa.walker_id
 LEFT JOIN WalkRequests AS r
