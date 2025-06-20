@@ -79,7 +79,10 @@
       methods: {
         async loadDogsWithImg() {
           try {
-            const res = fetch('/api')
+            const res = fetch('/api/dogs');
+            if (res.ok) {
+              dogs = fetch
+            }
 
           } catch (error) {
             error = error;
