@@ -8,10 +8,10 @@ const app = express();
 
 // Insert data
 async function InitDB() {
-  console.log()
+  console.log('test');
 }
 
-InitDB().then();
+InitDB().then().catch;
 
 
 
