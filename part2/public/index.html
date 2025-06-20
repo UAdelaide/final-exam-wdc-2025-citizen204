@@ -62,11 +62,12 @@
                 password: this.password
               })
             });
-    
             const data = response.json();
 
             if (data.error) {
               error = data.error
+            } else {
+              if (data.user.row)
             }
           } catch (err) {
             error = data.error | JSON.stringify(err);
