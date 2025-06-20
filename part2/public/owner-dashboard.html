@@ -98,7 +98,7 @@
             if (res.ok) {
               dogs.value = data;
             } else {
-              error.value = data.
+              error.value = data.error;
             }
           } catch (err) {
             error.value = 'Failed to load walk requests';
