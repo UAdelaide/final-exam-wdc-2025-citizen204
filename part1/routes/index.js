@@ -14,7 +14,7 @@ router.get('/', function(req, res, next) {
   try {
     const [rows] = await db.query(``);
 
-    
+    res.status(200).json(rows)
   } catch (error) {
     res.status(500).json({ error: error });
   }
