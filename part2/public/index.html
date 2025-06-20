@@ -14,7 +14,7 @@
   <div id="app" class="container py-5">
     <div>
       <!-- Login form -->
-      <form>
+      <form @submit.prevent="login">
         <div class="mb-3">
           <label for="u_email" class="form-label">Email address</label>
           <input type="email" class="form-control" id="u_email" aria-describedby="emailHelp" required v-model="email">
