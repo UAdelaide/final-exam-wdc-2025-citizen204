@@ -17,11 +17,11 @@
       <form>
         <div class="mb-3">
           <label for="u_email" class="form-label">Email address</label>
-          <input type="email" class="form-control" id="u_email" aria-describedby="emailHelp" req>
+          <input type="email" class="form-control" id="u_email" aria-describedby="emailHelp" required v-model="email">
           <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
         </div>
         <div class="mb-3">
-          <label for="u_password" class="form-label">Password</label>
+          <label for="u_password" class="form-label" required v-model="email">Password</label>
           <input type="password" class="form-control" id="u_password">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
