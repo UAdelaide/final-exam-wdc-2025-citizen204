@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+const db = 
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -8,7 +9,7 @@ router.get('/', function(req, res, next) {
 
 
 
-/* GET home page. */
+/* GET Return a list of all dogs with their size and owner's username. page. */
 router.get('/', function(req, res, next) {
   try {
     res.render('index', { title: 'Express' });
