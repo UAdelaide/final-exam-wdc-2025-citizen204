@@ -79,8 +79,8 @@
       methods: {
         async loadDogsWithImg() {
           try {
-            const res = async fetch('/api/dogs');
-            const data = res.json();
+            const res = await fetch('/api/dogs');
+            const data = await res.json();
 
             // check if success
             if (!res.ok) {
@@ -105,7 +105,8 @@
 
         async getRandomImg() {
           try {
-            const res = fetch('')
+            const res = await fetch('');
+            
           } catch (error) {
             return '';
           }
