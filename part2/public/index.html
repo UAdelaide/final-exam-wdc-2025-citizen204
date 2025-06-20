@@ -77,9 +77,10 @@
         };
       },
 
-                  mounted() {
-                this.loadDogsWithImg();
-            },
+      mounted() {
+        this.loadDogsWithImg();
+        console.log(dogs);
+      },
 
       methods: {
         async loadDogsWithImg() {
