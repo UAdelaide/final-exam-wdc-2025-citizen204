@@ -67,28 +67,31 @@
 
 <body class="bg-light">
 
-  <div id="app" class="login-container">
-    <h2 class="text-center mb-4 text-primary">Welcome to the Dog Walking Service!</h2>
-    <form @submit.prevent="login">
-      <div class="mb-3">
-        <label for="u_email" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="u_email" aria-describedby="emailHelp" required v-model="email">
-        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-      </div>
-      <div class="mb-3">
-        <label for="u_password" class="form-label">Password</label>
-        <input type="password" class="form-control" id="u_password" required v-model="password">
-      </div>
+  <div id="app">
+    <div class="login-container">
+      <h2 class="text-center mb-4 text-primary">Welcome to the Dog Walking Service!</h2>
+      <form @submit.prevent="login">
+        <div class="mb-3">
+          <label for="u_email" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="u_email" aria-describedby="emailHelp" required v-model="email">
+          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3">
+          <label for="u_password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="u_password" required v-model="password">
+        </div>
 
-      <div v-if="error" class="alert alert-danger mb-3" role="alert">
-        {{ error }}
-      </div>
+        <div v-if="error" class="alert alert-danger mb-3" role="alert">
+          {{ error }}
+        </div>
 
-      <button type="submit" class="btn btn-primary" :disabled="isLoading">
-        <span v-if="isLoading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-        <span v-else>Submit</span>
-      </button>
-    </form>
+        <button type="submit" class="btn btn-primary" :disabled="isLoading">
+          <span v-if="isLoading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+          <span v-else>Submit</span>
+        </button>
+      </form>
+    </div>
+
 
 
     <div>
