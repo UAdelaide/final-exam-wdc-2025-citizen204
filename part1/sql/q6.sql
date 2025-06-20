@@ -1,6 +1,6 @@
 SELECT
   WalkRequests.request_id,
-  Dogs.name,
+  Dogs.name as dog_name,
   WalkRequests.requested_time,
   WalkRequests.duration_minutes,
   WalkRequests.location,
