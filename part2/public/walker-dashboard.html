@@ -81,10 +81,8 @@
 
         async function getCurrentUser() {
           try {
-            const res = await fetch(`/api/users/me', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ walker_id: user })
+            const res = await fetch('/api/users/me', {
+              method: 'GET',
             });
             const result = await res.json();
 
