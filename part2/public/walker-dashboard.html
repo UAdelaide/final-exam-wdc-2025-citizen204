@@ -82,10 +82,9 @@
         async function getCurrentUser() {
           try {
             const res = await fetch('/api/users/me');
-            if 
             const result = await res.json();
 
-            if (!res.ok) throw new Error(result.error || 'Application failed');
+            if (res.ok) 
             message.value = result.message;
             error.value = '';
             await loadWalkRequests();
