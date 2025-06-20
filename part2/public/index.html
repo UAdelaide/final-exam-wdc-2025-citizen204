@@ -80,7 +80,9 @@
         async loadDogsWithImg() {
           try {
             const res = fetch('/api/dogs');
+            const data = res.json();
             if (!res.ok) {
+              error = data.error;
               dogs = res.json();
             } else {
 
