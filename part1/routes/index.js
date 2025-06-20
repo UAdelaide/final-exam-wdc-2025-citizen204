@@ -14,8 +14,7 @@ router.get('/api/dogs', async function (req, res, next) {
   try {
     const [result] = await db.query(`
       SELECT Dogs.name AS dog_name, Dogs.size, Users.username AS owner_username
-      FROM Dogs JOIN Users
-        ON d.owner_id = u.user_id`);
+      FROM Dogs JOIN Users ON Dogs.owner_id = Users.user_id`);
 
     res.status(200).json(result);
   } catch (error) {
