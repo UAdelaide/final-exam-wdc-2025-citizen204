@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,33 +11,39 @@
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
         }
+
         .hero-section {
             padding: 20px;
             text-align: center;
             background-color: #e0f2f7;
             color: #000;
         }
+
         .dog-image {
             max-width: 90%;
             height: auto;
             border-radius: 5px;
             margin-bottom: 10px;
         }
+
         h2 {
             font-size: 1.2rem;
             color: #8b0000;
             text-align: right;
         }
+
         h3 {
             font-size: 1rem;
             color: #4b0082;
             text-align: left;
             margin-top: 20px;
         }
+
         p {
             font-size: 0.9rem;
             line-height: 1.2;
         }
+
         .service-item {
             background-color: #ffffee;
             border: 1px dashed #ccc;
@@ -44,6 +51,7 @@
             margin-bottom: 10px;
             text-align: center;
         }
+
         .btn-custom {
             background-color: #ccffcc;
             color: #000;
@@ -54,15 +62,18 @@
             border-radius: 0;
             box-shadow: 2px 2px #888888;
         }
+
         .btn-custom:hover {
             background-color: #aaddaa;
         }
+
         .footer-custom {
             background-color: #333;
             color: #bbb;
             padding: 5px;
             text-align: center;
         }
+
         .footer-custom a {
             color: #bbb;
             font-size: 0.7rem;
@@ -79,12 +90,14 @@
             0% {
                 left: -50px;
             }
+
             100% {
                 left: 50px;
             }
         }
     </style>
 </head>
+
 <body>
 
     <div id="app">
@@ -98,7 +111,8 @@
                 <h3>Meet {{ dogDetails.name }}</h3>
                 <p><strong>Age:</strong> {{ dogDetails.age }}</p>
                 <p><strong>Personality:</strong> {{ dogDetails.personality }}</p>
-                <p style="background-color: #ffd700; color: #8b0000; padding: 3px;">Important Note: This dog may or may not be available for walking. Details subject to change without notice.</p>
+                <p style="background-color: #ffd700; color: #8b0000; padding: 3px;">Important Note: This dog may or may
+                    not be available for walking. Details subject to change without notice.</p>
             </div>
             <button class="btn btn-custom mt-3">Click Here for Something Unclear</button>
             <button class="btn btn-custom mt-3">Another Button</button>
@@ -135,4 +149,5 @@
         app.mount('#app');
     </script>
 </body>
+
 </html>
