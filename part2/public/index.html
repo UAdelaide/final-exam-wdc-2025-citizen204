@@ -64,6 +64,7 @@
             });
             const data = response.json();
 
+            // goto dashboard
             if (data.error) {
               error = data.error
             } else {
@@ -73,6 +74,8 @@
                 window.location.href = 'walker-dashboard.html';
               }
             }
+
+            
           } catch (err) {
             error = data.error | JSON.stringify(err);
           }
