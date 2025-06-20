@@ -62,6 +62,7 @@
                 password: this.password
               })
             });
+            const data = response.json();
             
             if (data.error) {
               error = data.error
