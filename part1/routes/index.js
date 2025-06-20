@@ -26,7 +26,7 @@ router.get('/api/dogs', async function(req, res, next) {
 
 
 /* Return all open walk requests, including the dog name, requested time, location, and owner's username. */
-router.get('/api/dogs', async function(req, res, next) {
+router.get('/api/walkrequests/open', async function(req, res, next) {
   try {
     const [rows] = await db.query(`
         SELECT Dogs.name AS dog_name, Dogs.size, Users.username AS owner_username
@@ -42,7 +42,7 @@ router.get('/api/dogs', async function(req, res, next) {
 
 
 /* /api/walkrequests/open */
-router.get('/api/dogs', async function(req, res, next) {
+router.get('/api/walkrequests/open', async function(req, res, next) {
   try {
     const [rows] = await db.query(`
         SELECT Dogs.name AS dog_name, Dogs.size, Users.username AS owner_username
