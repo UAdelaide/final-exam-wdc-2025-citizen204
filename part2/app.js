@@ -7,12 +7,12 @@ const app = express();
 const session = require('express-session');
 // Middleware
 app.use(session({
-  secret: 'session_secret',
-  resave: false,
-  saveUninitialized: true,
-  cookie: {
-    maxAge: 3,
-    secure: false
+    secret: 'session_secret',
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+        maxAge: 24 * 60 * 60,
+        secure: false
     }
 }));
 
