@@ -80,7 +80,7 @@ router.get('/logout', async (req, res) => {
 router.get('/doglist', async (req, res) => {
   try {
     if (!req.session.user) {
-      res.sta
+      res.status(400).json({ error: "Please l" })
     }
   } catch (error) {
 
