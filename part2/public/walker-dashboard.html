@@ -80,7 +80,22 @@
         }
 
         async function getCurrentUser() {
-          
+          try {
+            const res = await fetch(`/api/users/me', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ walker_id: user })
+            });
+            const result = await res.json();
+
+            if (!res.ok) throw new Error(result.error || 'Application failed');
+            message.value = result.message;
+            error.value = '';
+            await loadWalkRequests();
+          } catch (err) {
+            error.value = err.message;
+            message.value = '';
+          }
         }
 
         onMounted(() => {
