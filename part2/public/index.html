@@ -87,7 +87,7 @@
             const res = await fetch('/api/dogs');
             const data = await res.json();
 
-            console.log(data);
+            // console.log(data);
             // check if success
             if (!res.ok) {
               this.error = data.error;
@@ -97,7 +97,7 @@
             this.dogs = data;
             // set the image
             for (let i = 0; i < this.dogs.length; i++) {
-              this.dogs[i].img = await getRandomImg();
+              this.dogs[i].img = await this.getRandomImg();
             }
           } catch (err) {
             this.error = err;
