@@ -121,11 +121,12 @@
         onMounted(() => {
           loadWalks();
         });
-        
+
         async function logout() {
           try {
             const res = await fetch('/api/users/logout');
-            walks.value = await res.json();
+            const data = await res.json();
+            if (data.error)
           } catch (err) {
             error.value = 'Failed to load walk requests';
           }
