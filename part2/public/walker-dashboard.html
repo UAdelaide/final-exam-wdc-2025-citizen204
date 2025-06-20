@@ -86,11 +86,10 @@
 
             if (res.ok) {
               user = result.user_id;
-              ret
+              return;
+            } else {
+              user
             }
-            message.value = result.message;
-            error.value = '';
-            await loadWalkRequests();
           } catch (err) {
             error.value = err.message;
             message.value = '';
