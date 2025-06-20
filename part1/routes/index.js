@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
 /* GET Return a list of all dogs with their size and owner's username. page. */
 router.get('/api/dogs', async function(req, res, next) {
   try {
-    const [rows] = await db.query(`
+    const [result] = await db.query(`
     SELECT
       WalkRequests.request_id,
       Dogs.name as dog_name,
@@ -28,7 +28,7 @@ router.get('/api/dogs', async function(req, res, next) {
     WHERE
       WalkRequests.status = 'open';`);
 
-    res.status(200).json(rows);
+    res.status(200).json(result);
   } catch (error) {
     res.status(500).json({ error: error });
   }
@@ -39,12 +39,12 @@ router.get('/api/dogs', async function(req, res, next) {
 /* Return all open walk requests, including the dog name, requested time, location, and owner's username. */
 router.get('/api/walkrequests/open', async function(req, res, next) {
   try {
-    const [rows] = await db.query(`
+    const [result] = await db.query(`
         SELECT Dogs.name AS dog_name, Dogs.size, Users.username AS owner_username
         FROM Dogs JOIN Users
           ON d.owner_id = u.user_id`);
 
-    res.status(200).json(rows);
+    res.status(200).json(result);
   } catch (error) {
     res.status(500).json({ error: error });
   }
