@@ -9,9 +9,11 @@ const app = express();
 // Insert data
 async function InitDB() {
   try {
-    
-  } catch (error) {
+    db.query(`
 
+      `);
+  } catch (error) {
+    console.log(error)
   }
 }
 
