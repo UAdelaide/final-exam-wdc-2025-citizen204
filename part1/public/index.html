@@ -96,7 +96,6 @@
                 <h2 class="moving">Dog of the Day!</h2>
                 <img :src="dogImage" class="dog-image" :alt="''">
                 <h3>Meet {{ dogDetails.name }}</h3>
-                <p><strong>Breed:</strong> {{ dogDetails.breed }}</p>
                 <p><strong>Age:</strong> {{ dogDetails.age }}</p>
                 <p><strong>Personality:</strong> {{ dogDetails.personality }}</p>
                 <p style="background-color: #ffd700; color: #8b0000; padding: 3px;">Important Note: This dog may or may not be available for walking. Details subject to change without notice.</p>
@@ -115,7 +114,6 @@
                     dogImage: '',
                     dogDetails: {
                         name: 'GGBond',
-                        breed: 'Golden Retriever',
                         age: '3 years',
                         personality: 'Loves belly rubs and chasing squirrels, but also enjoys a good nap on the couch. Sometimes he barks at the mailman, but he\'s friendly, mostly.'
                     }
