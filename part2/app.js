@@ -10,10 +10,15 @@ const app = express();
 async function InitDB() {
   try {
     db.query(`
-
+      INSERT INTO Users (username, email, password_hash, role) VALUES
+      ('alice123', 'alice@example.com', 'hashed123', 'owner'),
+      ('bobwalker', 'bob@example.com', 'hashed456', 'walker'),
+      ('carol123', 'carol@example.com', 'hashed789', 'owner'),
+      ('user1', 'user1@example.com', '666', 'walker'),
+      ('user2', 'user2@example.com', '666', 'owner');
       `);
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
 }
 
