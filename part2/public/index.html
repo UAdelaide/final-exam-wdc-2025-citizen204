@@ -91,12 +91,7 @@
             dogs = data;
             // set the image
             for (let i = 0; i < dogs.length; i++) {
-              try {
-
-              } catch (error) {
-
-              }
-              dogs[i]
+              dogs[i].img = await getRandomImg();
             }
           } catch (error) {
             error = error;
@@ -118,7 +113,7 @@
           } catch (error) {
             return '';
           }
-        }
+        },
 
         async login() {
           this.error = ''; // Clear previous errors
