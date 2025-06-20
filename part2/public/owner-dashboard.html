@@ -131,6 +131,8 @@
               window.location.href = '/';
               return
             }
+
+            // set error
             const data = await res.json();
             if (data.error) {
               error.value = data.error;
