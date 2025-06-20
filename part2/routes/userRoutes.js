@@ -77,7 +77,15 @@ router.get('/logout', async (req, res) => {
 });
 
 
-router.get('/doglist', async (req, res) => )
+router.get('/doglist', async (req, res) => {
+  try {
+    if (!req.session.user) {
+      res.sta
+    }
+  } catch (error) {
+
+  }
+})
 
 module.exports = router;
 
