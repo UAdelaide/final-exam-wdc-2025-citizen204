@@ -113,7 +113,7 @@
             }
             const data = await res.json();
             if (data.status === 'success') {
-              return res.message;
+              return data.message;
             }
             return '';
           } catch (error) {
