@@ -5,15 +5,15 @@ INSERT INTO Users (username, email, password_hash, role) VALUES
 ('alice123', 'alice@example.com', 'hashed123', 'owner'),
 ('bobwalker', 'bob@example.com', 'hashed456', 'walker'),
 ('carol123', 'carol@example.com', 'hashed789', 'owner'),
-('user1', 'user1@example.com', 'hasheduser1', 'walker'),
-('user2', 'user2@example.com', 'hasheduser2', 'owner');
+('user1', 'user1@example.com', '666', 'walker'),
+('user2', 'user2@example.com', '666', 'owner');
 
 -- Insert five dogs
 INSERT INTO Dogs (owner_id, name, size) VALUES
 ((SELECT user_id FROM Users WHERE username = 'alice123'), 'Max', 'medium'),
 ((SELECT user_id FROM Users WHERE username = 'carol123'), 'Bella', 'small'),
 ((SELECT user_id FROM Users WHERE username = 'user1'), 'dog1', 'large'),
-((SELECT user_id FROM Users WHERE username = 'alice123'), 'dog2', 'small'),
+((SELECT user_id FROM Users WHERE username = 'user2'), 'dog2', 'small'),
 ((SELECT user_id FROM Users WHERE username = 'carol123'), 'dog3', 'medium');
 
 -- Insert five walk requests
