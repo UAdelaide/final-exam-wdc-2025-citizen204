@@ -25,7 +25,7 @@
             <label class="form-label">Dog ID</label>
             <select id="dog_id_select" v-model="form.dog_id" class="form-select" aria-label="select your dog" required>
               <option disabled value="">Please dog</option>
-              <option v-for="dog in dogs" :key="dog.dog_id" :value="dog.dog_id" >
+              <option v-for="dog in dog_list" :key="dog.dog_id" :value="dog.dog_id" >
                 {{ dog.name }}
               </option>
             </select>
