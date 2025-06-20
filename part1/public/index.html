@@ -81,20 +81,7 @@
             text-decoration: underline;
         }
 
-        .moving {
-            animation: slideLeftRight 4s infinite alternate;
-            position: relative;
-        }
-
-        @keyframes slideLeftRight {
-            0% {
-                left: -50px;
-            }
-
-            100% {
-                left: 50px;
-            }
-        }
+        dog-image
     </style>
 </head>
 
@@ -106,7 +93,7 @@
             <h1>Welcome to Our Dog Walking Service!</h1>
             <p style="color: #6a5acd;">The best choice for your furry friend, probably. We think.</p>
             <div v-if="dogImage" class="mt-4">
-                <h2 class="moving">Dog of the Day!</h2>
+                <h2>Dog of the Day!</h2>
                 <img :src="dogImage" class="dog-image">
                 <h3>Meet {{ dogDetails.name }}</h3>
                 <p><strong>Age:</strong> {{ dogDetails.age }}</p>
