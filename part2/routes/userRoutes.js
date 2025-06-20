@@ -63,7 +63,9 @@ router.post('/logout', async (req, res) => {
       if (err) {
         return res.status(500).json({ error: err });
       }
+      // clear session id
       res.clearCookie('connect.sid');
+      // redirect to login 
       return res.redirect('/');
     });
   } catch (error) {
