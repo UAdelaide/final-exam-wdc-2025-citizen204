@@ -96,7 +96,7 @@
 
             this.dogs = data;
             // set the image
-            for (let i = 0; i < dogs.length; i++) {
+            for (let i = 0; i < this.dogs.length; i++) {
               this.dogs[i].img = await getRandomImg();
             }
           } catch (err) {
