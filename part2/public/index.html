@@ -3,47 +3,65 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Dog Walking Service</title>
+  <title>Dog Walking Service Login</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
   <style>
-    .container {
+    body {
       display: flex;
       justify-content: center;
-      background-color: #bcffc2;
+      align-items: center;
+      min-height: 100vh; /* Make body take full viewport height */
+      background-color: #f8f9fa; /* Light grey background from Bootstrap */
+    }
+
+    .login-container {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px; /* Limit form width */
+    }
+
+    .alert-danger {
+      color: #721c24;
+      background-color: #f8d7da;
+      border-color: #f5c6cb;
+      padding: .75rem 1.25rem;
+      margin-bottom: 1rem;
+      border: 1px solid transparent;
+      border-radius: .25rem;
     }
   </style>
 </head>
 
 <body class="bg-light">
 
-  <div id="app" class="container">
-    <div class="login-form">
-      <!-- Login form -->
-      <form @submit.prevent="login">
-        <div class="mb-3">
-          <label for="u_email" class="form-label">Email address</label>
-          <input type="email" class="form-control" id="u_email" aria-describedby="emailHelp" required v-model="email">
-          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-        </div>
-        <div class="mb-3">
-          <label for="u_password" class="form-label" required v-model="password">Password</label>
-          <input type="password" class="form-control" id="u_password">
-        </div>
+  <div id="app" class="login-container">
+    <h2 class="text-center mb-4">Login</h2>
+    <form @submit.prevent="login">
+      <div class="mb-3">
+        <label for="u_email" class="form-label">Email address</label>
+        <input type="email" class="form-control" id="u_email" aria-describedby="emailHelp" required v-model="email">
+        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+      </div>
+      <div class="mb-3">
+        <label for="u_password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="u_password" required v-model="password">
+      </div>
 
-        <div class="alert alert-danger mb-3">
-          <div v-if="error">
-            {{ error }}
-          </div>
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
-    </div>
+      <div v-if="error" class="alert alert-danger mb-3" role="alert">
+        {{ error }}
+      </div>
 
-
-
+      <button type="submit" class="btn btn-primary w-100" :disabled="isLoading">
+        <span v-if="isLoading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        <span v-else>Submit</span>
+      </button>
+    </form>
   </div>
 
   <script>
@@ -53,15 +71,16 @@
         return {
           email: '',
           password: '',
-          error: ''
+          error: '',
+          isLoading: false
         };
       },
       methods: {
         async login() {
+          this.error = ''; // Clear previous errors
+          this.isLoading = true; // Set loading state
+
           try {
-            // clear error
-            error = '';
-            // fetch login api
             const response = await fetch('/api/users/login', {
               method: 'POST',
               headers: {
@@ -72,26 +91,34 @@
                 password: this.password
               })
             });
-            const data = response.json();
 
-            // goto dashboard
-            if (data.error) {
-              error = data.error;
-            } else {
+            // Check if the response is not OK (e.g., 401, 500)
+            if (!response.ok) {
+              const errorData = await response.json();
+              this.error = errorData.error || 'Login failed. Please try again.';
+              return; // Stop execution if there's an error
+            }
+
+            const data = await response.json(); // Await the JSON parsing
+
+            if (data.user) {
               if (data.user.role === 'owner') {
                 window.location.href = 'owner-dashboard.html';
               } else {
                 window.location.href = 'walker-dashboard.html';
               }
+            } else {
+              this.error = 'Unexpected response from server.';
             }
 
           } catch (err) {
-            // handle error
-            error = data.error | JSON.stringify(err);
+            console.error('Error during login:', err);
+            this.error = 'Network error or server unavailable. Please try again later.';
+          } finally {
+            this.isLoading = false; // Reset loading state
           }
         }
       },
-
     }).mount('#app');
   </script>
 
