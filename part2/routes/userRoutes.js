@@ -76,5 +76,8 @@ router.get('/logout', async (req, res) => {
   }
 });
 
+
+router.get('/doglist', async (req, res) => )
+
 module.exports = router;
 
