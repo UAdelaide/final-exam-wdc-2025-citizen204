@@ -9,14 +9,16 @@
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
   <style>
-
+    .login-form {
+      width: 45%;
+    }
   </style>
 </head>
 
 <body class="bg-light">
 
   <div id="app" class="container py-5">
-    <div class="">
+    <div class="login-form">
       <!-- Login form -->
       <form @submit.prevent="login">
         <div class="mb-3">
