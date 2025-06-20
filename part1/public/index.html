@@ -82,8 +82,12 @@
             text-decoration: underline;
         }
 
-        .dog-image:hover {
-            transform: translateX(300px);
+        
+
+        @keyframes move {
+            0% { left: 0; }
+            50% { left: 200px; }
+            100% { left: 0; }
         }
     </style>
 </head>
