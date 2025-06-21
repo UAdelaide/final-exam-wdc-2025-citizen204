@@ -2,7 +2,7 @@ const mysql = require('mysql2/promise');
 
 
 async function InitDB() {
-
+    
 }
 
-module.exports = initdb;
+module.exports = InitDB;
