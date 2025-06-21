@@ -1,4 +1,4 @@
-const mysql = require('mysql2/promise');
+const { exec } = require('child_process');
 
 
 async function InitDB() {
