@@ -19,7 +19,8 @@ async function initdb() {
       host: 'localhost',
       user: 'root',
       password: '',
-      database: 'testdb'
+      database: 'DogWalkService',
+      multipleStatements: true
     });
 
     // Create a table if it doesn't exist
