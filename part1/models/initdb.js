@@ -7,8 +7,7 @@ exec('mysql < init_db.sql', (error, stdout, stderr) => {
     console.error(`exec error: ${error}`);
     return;
   }
-  console.log(`stdout: ${stdout}`);
-  console.error(`stderr: ${stderr}`);
+  console.log("Create database finish.");
 });
 }
 
