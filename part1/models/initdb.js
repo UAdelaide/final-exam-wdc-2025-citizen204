@@ -11,7 +11,7 @@ async function initdb() {
 
     // Create the database if it doesn't exist
     await connection.query('DROP DATABASE IF EXISTS DogWalkService;');
-    await connection.query('DROP DATABASE IF EXISTS DogWalkService;');
+    await connection.query('CREATE DATABASE DogWalkService;');
     await connection.end();
 
     // Now connect to the created database
@@ -31,16 +31,6 @@ async function initdb() {
       )
     `);
 
-    // Insert data if table is empty
-    const [rows] = await db.execute('SELECT COUNT(*) AS count FROM books');
-    if (rows[0].count === 0) {
-      await db.execute(`
-        INSERT INTO books (title, author) VALUES
-        ('1984', 'George Orwell'),
-        ('To Kill a Mockingbird', 'Harper Lee'),
-        ('Brave New World', 'Aldous Huxley')
-      `);
-    }
   } catch (err) {
     console.error('Error setting up database. Ensure Mysql is running: service mysql start', err);
   }
